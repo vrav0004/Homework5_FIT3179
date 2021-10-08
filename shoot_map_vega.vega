@@ -1,0 +1,62 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 1000,
+    "height": 500,
+    "title": "Mass Shootings in the US for the Past 50 Years",
+    "projection": {"type": "albersUsa"},
+    "autosize": {
+        "type": "fit",
+        "contains": "padding"
+      },
+    "params": [
+        {
+        "name": "Max",
+        "value": 3,
+        "bind": {
+        "input": "range",
+        "min": 3,
+        "max": 600,
+        "step": 1,
+        "name": "Max Number of Victims: "
+        }
+    }],
+ 
+    "layer": [
+    {
+    "data": {
+    "url": "topo_america.json",
+    "format": {"type": "topojson", "feature": "states"}
+    },
+    "mark": {"type": "geoshape", "fill": "#e9fce9", "stroke": "lightgrey"}
+    },
+    {
+    "data": {
+    "url": "mass_shootings.csv"
+    },
+    "transform": [{"filter": "datum.Total_victims <= Max"}],
+    "mark": {"type": "circle", "color": "#8b1a1a", "opacity":0.65, "stroke":"black", "strokeWidth": 1, "size": 15},
+    "encoding": {
+    "longitude": {"field": "long", "type": "quantitative"},
+    "latitude": {"field": "lat", "type": "quantitative"},
+    "size": { 
+    "legend":null,
+    "field": "Total_victims",
+    "title": "Number of Victims",
+    "type": "quantitative",
+    "scale": {"domain":[3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 17, 20, 25, 35, 45, 50, 110, 600], 
+            "range": [ 10, 35, 65, 150] }
+
+    },
+    "tooltip": [
+        {"field": "Fatalities", "type":"nominal", "format": ","},
+        {"field": "Injured", "type":"quantitative"},
+        {"field": "Summary", "type":"ordinal"}]    
+        }
+    
+           
+    }],
+    "config": {"legend": {"labelFontSize":25}
+    }
+    
+   
+   }

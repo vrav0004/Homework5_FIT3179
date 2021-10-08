@@ -19,6 +19,14 @@
         }).catch(console.error);
       </script>
     
+    <script type="text/javascript">
+
+      var spec3 = "shoot_map_vega.json";
+      vegaEmbed('#shoot', spec2).then(function(result) {
+        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+      }).catch(console.error);
+    </script>
+  
     <title>Firssst-lite graph </title>
 </head>
 
@@ -27,6 +35,7 @@
     <p>Contains around 320 seprate events.</p>
     <p>The outlier which occured in October 2 2017 was also removed.</p>
     <div id="heatmap"></div>
+    <div id="shoot"></div>
 </body>
 
 </html>
