@@ -3,6 +3,8 @@
     "data": {
         "url": "mass_shootings.csv"
     },
+    "width": 1000,
+    "height": 500,
     "title": "Annual Mass Shootings Victims Heatmap",
     "autosize": {
         "type": "fit",
