@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+
+    <script type="text/javascript">
+
+        var spec2 = "heatmap_vega.vega.json";
+        vegaEmbed('#heatmap', spec2).then(function(result) {
+          // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+      </script>
+    
+    <title>Firssst-lite graph </title>
+</head>
+
+<body>
+    <h1>Mass Shootings in the US in the past 50 years </h1>
+    <p>Contains around 320 seprate events.</p>
+    <p>The outlier which occured in October 2 2017 was also removed.</p>
+    <div id="heatmap"></div>
+</body>
+
+</html>
